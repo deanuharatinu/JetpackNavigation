@@ -27,7 +27,8 @@ class SecondFragment : Fragment() {
         navController = NavHostFragment.findNavController(this)
 
         binding.btnNextFragment.setOnClickListener {
-            val toThirdFragment = SecondFragmentDirections.actionSecondFragmentToThirdFragment()
+            var textInput = binding.edtSecondFragment.text.toString()
+            val toThirdFragment = SecondFragmentDirections.actionSecondFragmentToThirdFragment(textInput)
             if (R.id.secondFragment == navController.currentDestination?.id)
                 navController.navigate(toThirdFragment)
         }
@@ -37,5 +38,4 @@ class SecondFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

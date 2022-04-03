@@ -17,13 +17,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_second_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_input"
+        app:layout_constraintBottom_toTopOf="@id/btn_next_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_second_fragment_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_second_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/next_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_second_fragment_title" />
+        app:layout_constraintTop_toBottomOf="@id/til_second_fragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

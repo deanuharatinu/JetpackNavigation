@@ -23,11 +23,17 @@
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment"
             app:popUpTo="@id/welcomeFragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="false">
+        </action>
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.example.jetpacknavigation.ThirdFragment"
         android:label="third_fragment"
-        tools:layout="@layout/third_fragment" />
+        tools:layout="@layout/third_fragment">
+        <argument
+            android:name="text"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
 </navigation>
