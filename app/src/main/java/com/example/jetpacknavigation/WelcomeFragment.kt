@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.jetpacknavigation.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment : Fragment() {
@@ -13,6 +17,7 @@ class WelcomeFragment : Fragment() {
      */
     private var _binding: WelcomeFragmentBinding? = null
     private val binding get() = _binding!!
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,6 +26,21 @@ class WelcomeFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = WelcomeFragmentBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navController = NavHostFragment.findNavController(this)
+
+        binding.btnNextFragment.setOnClickListener {
+            val toSecondFragment = WelcomeFragmentDirections.actionWelcomeFragmentToSecondFragment()
+            /**
+             * This checking is necessary to make sure the current destination is not null
+             * @author: Deanu H.T. - 3 April 2022
+             */
+            if (R.id.welcomeFragment == navController.currentDestination?.id)
+                navController.navigate(toSecondFragment)
+        }
     }
 
     /**

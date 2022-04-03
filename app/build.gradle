@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    // Don't forget to add this plugins to make sure Directions class is generated
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -34,7 +36,7 @@ android {
     /**
      *  This is for using the ViewBinding
      */
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 
